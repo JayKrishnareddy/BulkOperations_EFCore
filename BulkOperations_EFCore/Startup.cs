@@ -39,7 +39,7 @@ namespace BulkOperations_EFCore
             #region Connection String
             services.AddDbContext<AppDbContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             #endregion
-            services.AddTransient<EmployeeService>();
+            services.AddScoped<EmployeeService>();
 
         }
 

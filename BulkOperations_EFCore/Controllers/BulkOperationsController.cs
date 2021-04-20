@@ -13,6 +13,10 @@ namespace BulkOperations_EFCore.Controllers
     public class BulkOperationsController : ControllerBase
     {
         private readonly EmployeeService _employeeService;
+        public BulkOperationsController(EmployeeService employeeService)
+        {
+            _employeeService = employeeService;
+        }
         [HttpPost(nameof(AddBulkData))]
         public async Task<IActionResult> AddBulkData()
         {

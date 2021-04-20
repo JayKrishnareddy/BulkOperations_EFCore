@@ -11,11 +11,15 @@ namespace BulkOperations_EFCore.BusinessLogic
     {
         private readonly AppDbContext _appDbContext;
 
+        public EmployeeService(AppDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
         #region Add Bulk Data
         public async Task<long> AddBulkDataAsync()
         {
             List<Employee> employees = new(); // C# Syntax
-            for (int i = 0; i < 100000; i++)
+            for (int i = 1; i <= 100000; i++)
             {
                 employees.Add(new Employee()
                 {
