@@ -1,3 +1,4 @@
+using BulkOperations_EFCore.BusinessLogic;
 using BulkOperations_EFCore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,7 @@ namespace BulkOperations_EFCore
             #region Connection String
             services.AddDbContext<AppDbContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             #endregion
+            services.AddTransient<EmployeeService>();
 
         }
 
