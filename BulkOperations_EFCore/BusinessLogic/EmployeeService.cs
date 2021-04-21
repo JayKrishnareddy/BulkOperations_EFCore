@@ -12,7 +12,7 @@ namespace BulkOperations_EFCore.BusinessLogic
         private readonly AppDbContext _appDbContext;
         private DateTime Start;
         private TimeSpan TimeSpan;
-
+        //The "duration" variable contains Execution time when we doing the operations (Insert,Update,Delete)
         public EmployeeService(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
