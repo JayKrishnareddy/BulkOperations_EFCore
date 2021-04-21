@@ -21,19 +21,19 @@ namespace BulkOperations_EFCore.Controllers
         public async Task<IActionResult> AddBulkData()
         {
             var response = await _employeeService.AddBulkDataAsync();
-            return response is not 0 ? Ok(response) : NotFound();
+            return Ok(response);
         }
         [HttpPut(nameof(UpdateBulkData))]
         public async Task<IActionResult> UpdateBulkData()
         {
             var response = await _employeeService.UpdateBulkDataAsync();
-            return response is not 0 ? Ok(response) : NotFound();
+            return Ok(response);
         }
         [HttpDelete(nameof(DeleteBulkData))]
         public async Task<IActionResult> DeleteBulkData()
         {
             var response = await _employeeService.DeleteBulkDataAsync();
-            return response is true ? Ok(response) : NotFound();
+            return Ok(response);
         }
     }
 }

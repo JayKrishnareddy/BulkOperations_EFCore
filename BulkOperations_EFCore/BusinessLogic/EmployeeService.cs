@@ -10,15 +10,18 @@ namespace BulkOperations_EFCore.BusinessLogic
     public class EmployeeService
     {
         private readonly AppDbContext _appDbContext;
+        private DateTime Start;
+        private TimeSpan TimeSpan;
 
         public EmployeeService(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
         #region Add Bulk Data
-        public async Task<long> AddBulkDataAsync()
+        public async Task<TimeSpan> AddBulkDataAsync()
         {
             List<Employee> employees = new(); // C# 9 Syntax.
+            Start = DateTime.Now;
             for (int i = 0; i < 100000; i++)
             {
                 employees.Add(new Employee()
@@ -29,14 +32,16 @@ namespace BulkOperations_EFCore.BusinessLogic
                 });
             }
             await _appDbContext.BulkInsertAsync(employees);
-            return employees.Count;
+            TimeSpan = DateTime.Now - Start;
+            return TimeSpan;
         }
         #endregion
 
         #region Update Bulk Data
-        public async Task<long> UpdateBulkDataAsync()
+        public async Task<TimeSpan> UpdateBulkDataAsync()
         {
             List<Employee> employees = new(); // C# 9 Syntax.
+            Start = DateTime.Now;
             for (int i = 0; i < 100000; i++)
             {
                 employees.Add(new Employee()
@@ -48,17 +53,20 @@ namespace BulkOperations_EFCore.BusinessLogic
                 });
             }
             await _appDbContext.BulkUpdateAsync(employees);
-            return employees.Count;
+            TimeSpan = DateTime.Now - Start;
+            return TimeSpan;
         }
         #endregion
 
         #region Delete Bulk Data
-        public async Task<bool> DeleteBulkDataAsync()
+        public async Task<TimeSpan> DeleteBulkDataAsync()
         {
             List<Employee> employees = new(); // C# 9 Syntax.
+            Start = DateTime.Now;
             employees = _appDbContext.Employees.ToList();
             await _appDbContext.BulkDeleteAsync(employees);
-            return true;
+            TimeSpan = DateTime.Now - Start;
+            return TimeSpan;
         }
         #endregion
     }
