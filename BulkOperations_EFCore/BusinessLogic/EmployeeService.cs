@@ -19,7 +19,7 @@ namespace BulkOperations_EFCore.BusinessLogic
         public async Task<long> AddBulkDataAsync()
         {
             List<Employee> employees = new(); // C# 9 Syntax.
-            for (int i = 1; i <= 100000; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 employees.Add(new Employee()
                 {
@@ -41,10 +41,10 @@ namespace BulkOperations_EFCore.BusinessLogic
             {
                 employees.Add(new Employee()
                 {
-                    Id = i + 1,
-                    Name = "UpdateEmployee_" + i,
-                    Designation = "UpdateDesignation_" + i,
-                    City = "UpdateCity_" + i
+                    Id = (i + 1),
+                    Name = "Update Employee_" + i,
+                    Designation = "Update Designation_" + i,
+                    City = "Update City_" + i
                 });
             }
             await _appDbContext.BulkUpdateAsync(employees);
