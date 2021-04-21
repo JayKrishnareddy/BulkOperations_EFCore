@@ -18,7 +18,7 @@ namespace BulkOperations_EFCore.BusinessLogic
         #region Add Bulk Data
         public async Task<long> AddBulkDataAsync()
         {
-            List<Employee> employees = new(); // C# 9 Syntax
+            List<Employee> employees = new(); // C# 9 Syntax.
             for (int i = 1; i <= 100000; i++)
             {
                 employees.Add(new Employee()
@@ -36,7 +36,7 @@ namespace BulkOperations_EFCore.BusinessLogic
         #region Update Bulk Data
         public async Task<long> UpdateBulkDataAsync()
         {
-            List<Employee> employees = new(); // C# 9 Syntax
+            List<Employee> employees = new(); // C# 9 Syntax.
             for (int i = 0; i < 100000; i++)
             {
                 employees.Add(new Employee()
@@ -55,7 +55,7 @@ namespace BulkOperations_EFCore.BusinessLogic
         #region Delete Bulk Data
         public async Task<bool> DeleteBulkDataAsync()
         {
-            List<Employee> employees = new(); // C# 9 Syntax
+            List<Employee> employees = new(); // C# 9 Syntax.
             employees = _appDbContext.Employees.ToList();
             await _appDbContext.BulkDeleteAsync(employees);
             return true;
