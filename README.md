@@ -1,6 +1,6 @@
 ## Bulk Operations Using Entity Framework Core
 
-# Topics Covered
+### Topics Covered
 - Problem with EF, EFCore while dealing with huge data
 - Compare Performance between Bulk Insert vs Add Range 
 - Project Setup
