@@ -4,7 +4,7 @@
 - Problem with EF, EFCore while dealing with huge data
 - Compare Performance between Bulk Insert vs Add Range 
 - Project Setup
-- Test & check the execution performance bulk insertions(100k)
+- Test & check the execution performance bulk insertions(100k records)
 
 If you want more about this, Do check out my Article 👇🏻
 
